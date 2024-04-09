@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		AF6838502BC5565E0067217A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68384F2BC5565E0067217A /* AppDelegate.swift */; };
 		AF6838522BC5565E0067217A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6838512BC5565E0067217A /* SceneDelegate.swift */; };
-		AF6838542BC5565E0067217A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6838532BC5565E0067217A /* ViewController.swift */; };
 		AF6838572BC5565E0067217A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6838552BC5565E0067217A /* Main.storyboard */; };
 		AF6838592BC556610067217A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF6838582BC556610067217A /* Assets.xcassets */; };
 		AF68385C2BC556610067217A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF68385A2BC556610067217A /* LaunchScreen.storyboard */; };
+		AF6838642BC55AE40067217A /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6838632BC55AE40067217A /* TimeLineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF68384C2BC5565E0067217A /* XSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF68384F2BC5565E0067217A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF6838512BC5565E0067217A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AF6838532BC5565E0067217A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF6838562BC5565E0067217A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF6838582BC556610067217A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF68385B2BC556610067217A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF68385D2BC556610067217A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF6838632BC55AE40067217A /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			children = (
 				AF68384F2BC5565E0067217A /* AppDelegate.swift */,
 				AF6838512BC5565E0067217A /* SceneDelegate.swift */,
-				AF6838532BC5565E0067217A /* ViewController.swift */,
+				AF6838632BC55AE40067217A /* TimeLineViewController.swift */,
 				AF6838552BC5565E0067217A /* Main.storyboard */,
 				AF6838582BC556610067217A /* Assets.xcassets */,
 				AF68385A2BC556610067217A /* LaunchScreen.storyboard */,
@@ -138,9 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF6838542BC5565E0067217A /* ViewController.swift in Sources */,
 				AF6838502BC5565E0067217A /* AppDelegate.swift in Sources */,
 				AF6838522BC5565E0067217A /* SceneDelegate.swift in Sources */,
+				AF6838642BC55AE40067217A /* TimeLineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +292,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65S5SNW79U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XSampleApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -319,6 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65S5SNW79U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XSampleApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
