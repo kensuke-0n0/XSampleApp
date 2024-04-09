@@ -13,6 +13,8 @@
 		AF6838592BC556610067217A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF6838582BC556610067217A /* Assets.xcassets */; };
 		AF68385C2BC556610067217A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF68385A2BC556610067217A /* LaunchScreen.storyboard */; };
 		AF6838642BC55AE40067217A /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6838632BC55AE40067217A /* TimeLineViewController.swift */; };
+		AF6838672BC574830067217A /* XTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6838652BC574830067217A /* XTableViewCell.swift */; };
+		AF6838682BC574830067217A /* XTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF6838662BC574830067217A /* XTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		AF68385B2BC556610067217A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF68385D2BC556610067217A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF6838632BC55AE40067217A /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		AF6838652BC574830067217A /* XTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTableViewCell.swift; sourceTree = "<group>"; };
+		AF6838662BC574830067217A /* XTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				AF6838582BC556610067217A /* Assets.xcassets */,
 				AF68385A2BC556610067217A /* LaunchScreen.storyboard */,
 				AF68385D2BC556610067217A /* Info.plist */,
+				AF6838652BC574830067217A /* XTableViewCell.swift */,
+				AF6838662BC574830067217A /* XTableViewCell.xib */,
 			);
 			path = XSampleApp;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			files = (
 				AF68385C2BC556610067217A /* LaunchScreen.storyboard in Resources */,
 				AF6838592BC556610067217A /* Assets.xcassets in Resources */,
+				AF6838682BC574830067217A /* XTableViewCell.xib in Resources */,
 				AF6838572BC5565E0067217A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				AF6838502BC5565E0067217A /* AppDelegate.swift in Sources */,
 				AF6838522BC5565E0067217A /* SceneDelegate.swift in Sources */,
+				AF6838672BC574830067217A /* XTableViewCell.swift in Sources */,
 				AF6838642BC55AE40067217A /* TimeLineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
