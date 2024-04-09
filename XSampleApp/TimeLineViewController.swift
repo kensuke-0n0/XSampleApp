@@ -9,8 +9,6 @@ import UIKit
 
 class TimeLineViewController: UIViewController {
     
-    let array = ["りんご", "ゴリラ", "ラッパ"]
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,19 +18,21 @@ class TimeLineViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
+        let nib = UINib(nibName: "XTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "cell")
     }
 }
 
 extension TimeLineViewController: UITableViewDataSource {
     /// セルの数を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return 5
     }
     
     /// 各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = array[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! XTableViewCell
+        cell.setup(userName: "太郎", detail: "ああああああ")
         return cell
     }
 }
