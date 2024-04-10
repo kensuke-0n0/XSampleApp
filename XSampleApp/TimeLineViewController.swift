@@ -36,3 +36,11 @@ extension TimeLineViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension TimeLineViewController: UITableViewDelegate {
+    /// セルの高さを設定する。
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        /// セルの高さを自動調整する。
+        return UITableView.automaticDimension
+    }
+}
