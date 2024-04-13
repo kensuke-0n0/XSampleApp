@@ -32,7 +32,7 @@ extension TimeLineViewController: UITableViewDataSource {
     /// 各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! XTableViewCell
-        cell.setup(userName: "太郎", detail: "ああああああ")
+        cell.setup(userName: "太郎", detail: "あああああああああああああああああああああああああああああああああ")
         return cell
     }
 }
