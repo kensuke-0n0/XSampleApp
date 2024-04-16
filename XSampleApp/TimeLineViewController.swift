@@ -9,6 +9,12 @@ import UIKit
 
 class TimeLineViewController: UIViewController {
     
+    let details =  [
+        "ああああああああああああああああああああああああああ",
+        "あああああああああああああああああああああああああああああああああ",
+        "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+        ]
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -18,6 +24,7 @@ class TimeLineViewController: UIViewController {
     
     func configureTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         let nib = UINib(nibName: "XTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
@@ -26,13 +33,21 @@ class TimeLineViewController: UIViewController {
 extension TimeLineViewController: UITableViewDataSource {
     /// セルの数を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return details.count
     }
     
     /// 各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! XTableViewCell
-        cell.setup(userName: "太郎", detail: "ああああああ")
+        cell.setup(userName: "太郎", detail: details[indexPath.row])
         return cell
+    }
+}
+
+extension TimeLineViewController: UITableViewDelegate {
+    /// セルの高さを設定する。
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        /// セルの高さを自動調整する。
+        return UITableView.automaticDimension
     }
 }
