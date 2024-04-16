@@ -7,20 +7,36 @@
 
 import UIKit
 
+/// タイムライン画面
 class TimeLineViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    /// 詳細
     let details =  [
         "ああああああああああああああああああああああああああ",
         "あああああああああああああああああああああああああああああああああ",
         "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
         ]
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - View Life-Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
     }
+    
+    // MARK: - IBActions
+    
+    /// ツイートボタンをタップ
+    @IBAction func didTapTweetButton(_ sender: Any) {
+    }
+    
+    // MARK: - Other Methods
     
     func configureTableView() {
         tableView.dataSource = self
@@ -29,6 +45,8 @@ class TimeLineViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension TimeLineViewController: UITableViewDataSource {
     /// セルの数を返すメソッド
@@ -47,7 +65,7 @@ extension TimeLineViewController: UITableViewDataSource {
 extension TimeLineViewController: UITableViewDelegate {
     /// セルの高さを設定する。
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        /// セルの高さを自動調整する。
+        // セルの高さを自動調整する。
         return UITableView.automaticDimension
     }
 }
