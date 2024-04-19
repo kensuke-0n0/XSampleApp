@@ -7,7 +7,7 @@
 
 import UIKit
 
-class XViewController: UIViewController {
+class EditViewController: UIViewController {
     
     @IBOutlet weak var tweetTextView: UITextView!
     
