@@ -17,13 +17,13 @@ class EditViewController: UIViewController {
         configureTextView()
     }
     
-    func configureTextView() {
-    }
-    
     // 閉じるボタンをタップ
     @IBAction func didTapCancelButton(_ sender: Any) {
         // 前の画面に戻る
         dismiss(animated: true, completion: nil)
+    }
+    
+    func configureTextView() {
     }
 }
 
