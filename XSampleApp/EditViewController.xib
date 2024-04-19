@@ -15,7 +15,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="inS-6i-a35" customClass="XViewController" customModule="XSampleApp" customModuleProvider="target">
+        <viewController id="inS-6i-a35" customClass="EditViewController" customModule="XSampleApp" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="ZgB-US-8Is">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,7 +10,6 @@ import UIKit
 class EditViewController: UIViewController {
     
     @IBOutlet weak var tweetTextView: UITextView!
-    
     @IBOutlet weak var userNameTextField: UITextField!
     
     override func viewDidLoad() {
