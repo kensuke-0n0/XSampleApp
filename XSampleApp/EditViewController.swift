@@ -17,7 +17,7 @@ class EditViewController: UIViewController {
         configureTextView()
     }
     
-    // 閉じるボタンをタップ
+    // キャンセルボタンをタップ
     @IBAction func didTapCancelButton(_ sender: Any) {
         // 前の画面に戻る
         dismiss(animated: true, completion: nil)
