@@ -71,8 +71,8 @@ extension TimeLineViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextVC = XViewController()
-                nextVC.modalPresentationStyle = .fullScreen
-                present(nextVC, animated: true)
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true)
     }
 }
 
