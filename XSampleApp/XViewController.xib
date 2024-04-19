@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XViewController" customModule="XSampleApp" customModuleProvider="target">
+            <connections>
+                <outlet property="tweetTextView" destination="1dp-1j-i4V" id="WI5-id-PVy"/>
+                <outlet property="userNameTextField" destination="PDs-Ty-Wsi" id="sNf-JO-5yV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="inS-6i-a35" customClass="XViewController" customModule="XSampleApp" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="ZgB-US-8Is">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-1j-i4V">
+                        <rect key="frame" x="10" y="155" width="382" height="673"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PDs-Ty-Wsi">
+                        <rect key="frame" x="10" y="109" width="373" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAm-c0-66r">
+                        <rect key="frame" x="10" y="59" width="104" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="キャンセル"/>
+                        <connections>
+                            <action selector="didTapCancelButton:" destination="-1" eventType="touchUpInside" id="POG-Ot-Kt4"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsJ-0w-Snb">
+                        <rect key="frame" x="279" y="59" width="104" height="35"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="ポストする"/>
+                    </button>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="sxb-NX-qvO"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="1dp-1j-i4V" firstAttribute="top" secondItem="PDs-Ty-Wsi" secondAttribute="bottom" constant="12" id="0jl-vQ-TUc"/>
+                    <constraint firstItem="sxb-NX-qvO" firstAttribute="trailing" secondItem="1dp-1j-i4V" secondAttribute="trailing" constant="1" id="9Ih-cR-b4d"/>
+                    <constraint firstItem="1dp-1j-i4V" firstAttribute="bottom" secondItem="sxb-NX-qvO" secondAttribute="bottom" constant="10" id="Ipn-Uj-3Kh"/>
+                    <constraint firstAttribute="trailing" secondItem="hsJ-0w-Snb" secondAttribute="trailing" constant="10" id="O77-3E-Jxp"/>
+                    <constraint firstItem="sxb-NX-qvO" firstAttribute="trailing" secondItem="PDs-Ty-Wsi" secondAttribute="trailing" constant="10" id="Ppy-Ps-nvO"/>
+                    <constraint firstItem="PDs-Ty-Wsi" firstAttribute="leading" secondItem="sxb-NX-qvO" secondAttribute="leading" constant="10" id="QaO-fZ-0hj"/>
+                    <constraint firstItem="PDs-Ty-Wsi" firstAttribute="top" secondItem="sxb-NX-qvO" secondAttribute="top" constant="50" id="gCN-Vv-pPU"/>
+                    <constraint firstItem="RAm-c0-66r" firstAttribute="top" secondItem="sxb-NX-qvO" secondAttribute="top" id="gto-k9-qZm"/>
+                    <constraint firstItem="1dp-1j-i4V" firstAttribute="leading" secondItem="sxb-NX-qvO" secondAttribute="leading" constant="10" id="tQV-Qx-HQn"/>
+                    <constraint firstItem="hsJ-0w-Snb" firstAttribute="top" secondItem="sxb-NX-qvO" secondAttribute="top" id="uAY-5Q-zgC"/>
+                    <constraint firstItem="RAm-c0-66r" firstAttribute="leading" secondItem="sxb-NX-qvO" secondAttribute="leading" constant="10" id="vRa-fb-Xfg"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-469.46564885496178" y="-18.30985915492958"/>
+        </viewController>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

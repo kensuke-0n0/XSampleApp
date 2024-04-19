@@ -68,4 +68,11 @@ extension TimeLineViewController: UITableViewDelegate {
         // セルの高さを自動調整する。
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = XViewController()
+                nextVC.modalPresentationStyle = .fullScreen
+                present(nextVC, animated: true)
+    }
 }
+
