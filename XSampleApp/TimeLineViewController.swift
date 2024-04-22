@@ -17,7 +17,7 @@ class TimeLineViewController: UIViewController {
         "ああああああああああああああああああああああああああ",
         "あああああああああああああああああああああああああああああああああ",
         "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
-        ]
+    ]
     
     // MARK: - IBOutlets
     
@@ -34,6 +34,9 @@ class TimeLineViewController: UIViewController {
     
     /// ツイートボタンをタップ
     @IBAction func didTapTweetButton(_ sender: Any) {
+        let editVC = EditViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        present(editVC, animated: true)
     }
     
     // MARK: - Other Methods
