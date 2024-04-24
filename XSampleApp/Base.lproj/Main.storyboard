@@ -72,6 +72,7 @@
                             <constraint firstAttribute="bottom" secondItem="zSF-pd-wXX" secondAttribute="bottom" id="kK9-WR-2qT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="lkA-7e-ikR"/>
                     <connections>
                         <outlet property="tableView" destination="zSF-pd-wXX" id="mZN-qu-CeJ"/>
                     </connections>

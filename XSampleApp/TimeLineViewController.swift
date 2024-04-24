@@ -17,7 +17,7 @@ class TimeLineViewController: UIViewController {
         "ああああああああああああああああああああああああああ",
         "あああああああああああああああああああああああああああああああああ",
         "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
-        ]
+    ]
     
     // MARK: - IBOutlets
     
@@ -34,6 +34,9 @@ class TimeLineViewController: UIViewController {
     
     /// ツイートボタンをタップ
     @IBAction func didTapTweetButton(_ sender: Any) {
+        let editVC = EditViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        present(editVC, animated: true)
     }
     
     // MARK: - Other Methods
@@ -68,4 +71,11 @@ extension TimeLineViewController: UITableViewDelegate {
         // セルの高さを自動調整する。
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editVC = EditViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        present(editVC, animated: true)
+    }
 }
+
