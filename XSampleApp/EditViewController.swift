@@ -12,7 +12,6 @@ class EditViewController: UIViewController {
     // MARK: - Properties
     
     let placeholderText = "いまどうしてる？"
-    let placeholderTextField = "ユーザー名を入力してください"
     
     // MARK: - IBOutlets
     
@@ -23,7 +22,6 @@ class EditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTextView()
     }
     
@@ -37,14 +35,34 @@ class EditViewController: UIViewController {
     @IBAction func didTapPostButton(_ sender: Any) {
     }
     
-    // MARK - Other Methods
+    // MARK: - Other Methods
     
     func configureTextView() {
         // プレースホルダーテキストを設定
         tweetTextView.text = placeholderText
         tweetTextView.textColor = UIColor.lightGray
-        
-        userNameTextField.text = placeholderTextField
-        userNameTextField.textColor = UIColor.lightGray
+        // デリゲートを設定
+        tweetTextView.delegate = self
+    }
+}
+
+// MARK: - UITextViewDelegate
+
+extension EditViewController: UITextViewDelegate {
+    
+    /// テキストが編集されたときに呼ばれる
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == placeholderText && textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    /// テキストフィールドがフォーカスを失ったときに呼ばれる
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeholderText
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
