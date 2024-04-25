@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EditViewController: UIViewController {
     
     // MARK: - Properties
     
     let placeholderText = "いまどうしてる？"
+    var dataModel = TweetDataModel()
     
     // MARK: - IBOutlets
     
@@ -33,6 +35,7 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func didTapPostButton(_ sender: Any) {
+        saveData()
     }
     
     // MARK: - Other Methods
@@ -43,6 +46,22 @@ class EditViewController: UIViewController {
         tweetTextView.textColor = UIColor.lightGray
         // デリゲートを設定
         tweetTextView.delegate = self
+    }
+    
+    // データを保存
+    func saveData() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                dataModel.あああ = ""
+                dataModel.いいい = 0
+                realm.add(dataModel)
+            }
+            // 前の画面に戻る
+            dismiss(animated: true, completion: nil)
+        } catch {
+            print("データの追加エラー: \(error)")
+        }
     }
 }
 
