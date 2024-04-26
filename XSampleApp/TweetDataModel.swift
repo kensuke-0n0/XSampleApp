@@ -9,6 +9,6 @@ import RealmSwift
 
 class TweetDataModel: Object {
     @Persisted var id: String = UUID().uuidString //データを一意に識別するための識別子
-    @Persisted var あああ: String = ""
-    @Persisted var いいい: Int = 0
+    @Persisted var userName: String = ""
+    @Persisted var tweetText: String = ""
 }
