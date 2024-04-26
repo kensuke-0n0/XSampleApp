@@ -48,7 +48,7 @@ class EditViewController: UIViewController {
         tweetTextView.delegate = self
     }
     
-    // データを保存
+    /// データを保存
     func saveData() {
         guard let userName = userNameTextField.text,
               let tweetText = tweetTextView.text else { return }
@@ -63,7 +63,17 @@ class EditViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         } catch {
             print("データの追加エラー: \(error)")
+            showAlert()
         }
+    }
+    
+    /// アラートを表示
+    func showAlert() {
+        let alert = UIAlertController(title: "エラーが発生しました",
+                                      message: "",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
