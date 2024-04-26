@@ -50,11 +50,13 @@ class EditViewController: UIViewController {
     
     // データを保存
     func saveData() {
+        guard let userName = userNameTextField.text,
+              let tweetText = tweetTextView.text else { return }
         do {
             let realm = try Realm()
             try realm.write {
-                dataModel.userName = ""
-                dataModel.tweetText = ""
+                dataModel.userName = userName
+                dataModel.tweetText = tweetText
                 realm.add(dataModel)
             }
             // 前の画面に戻る
