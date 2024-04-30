@@ -13,11 +13,11 @@ class TimeLineViewController: UIViewController {
     
     // MARK: - Properties
     
-    var tweetDataList: [TweetDataModel] = []
+    private var tweetDataList: [TweetDataModel] = []
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - View Life-Cycle Methods
     
@@ -30,7 +30,7 @@ class TimeLineViewController: UIViewController {
     // MARK: - IBActions
     
     /// ツイートボタンをタップ
-    @IBAction func didTapTweetButton(_ sender: Any) {
+    @IBAction private func didTapTweetButton(_ sender: Any) {
         let editVC = EditViewController()
         editVC.delegate = self
         editVC.modalPresentationStyle = .fullScreen
@@ -39,7 +39,7 @@ class TimeLineViewController: UIViewController {
     
     // MARK: - Other Methods
     
-    func configureTableView() {
+    private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         let nib = UINib(nibName: "XTableViewCell", bundle: nil)
@@ -47,7 +47,7 @@ class TimeLineViewController: UIViewController {
     }
     
     /// データ取得
-    func fetchData() {
+    private func fetchData() {
         do {
             let realm = try Realm()
             let result = realm.objects(TweetDataModel.self)
@@ -61,7 +61,7 @@ class TimeLineViewController: UIViewController {
     }
     
     /// アラートを表示
-    func showAlert() {
+    private func showAlert() {
         let alert = UIAlertController(title: "エラーが発生しました",
                                       message: "",
                                       preferredStyle: .alert)
@@ -87,6 +87,8 @@ extension TimeLineViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension TimeLineViewController: UITableViewDelegate {
     /// セルの高さを設定する。
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,16 +98,18 @@ extension TimeLineViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let editVC = EditViewController()
-        editVC.setData(userName: tweetDataList[indexPath.row].userName,
-                       tweetText: tweetDataList[indexPath.row].tweetText)
+        editVC.setData(tweetData: tweetDataList[indexPath.row])
+        editVC.delegate = self
         editVC.modalPresentationStyle = .fullScreen
         present(editVC, animated: true)
     }
 }
 
+// MARK: - EditViewControllerDelegate
+
 extension TimeLineViewController: EditViewControllerDelegate {
     /// 「決定」ボタンをタップ時
-    func upDateView() {
+    func updateView() {
         fetchData()
     }
 }
