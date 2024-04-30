@@ -6,18 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// タイムライン画面
 class TimeLineViewController: UIViewController {
     
     // MARK: - Properties
     
-    /// 詳細
-    let details =  [
-        "ああああああああああああああああああああああああああ",
-        "あああああああああああああああああああああああああああああああああ",
-        "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
-    ]
+    var tweetDataList: [TweetDataModel] = []
     
     // MARK: - IBOutlets
     
@@ -28,6 +24,7 @@ class TimeLineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        fetchData()
     }
     
     // MARK: - IBActions
@@ -35,6 +32,7 @@ class TimeLineViewController: UIViewController {
     /// ツイートボタンをタップ
     @IBAction func didTapTweetButton(_ sender: Any) {
         let editVC = EditViewController()
+        editVC.delegate = self
         editVC.modalPresentationStyle = .fullScreen
         present(editVC, animated: true)
     }
@@ -47,6 +45,29 @@ class TimeLineViewController: UIViewController {
         let nib = UINib(nibName: "XTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
+    
+    /// データ取得
+    func fetchData() {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(TweetDataModel.self)
+            tweetDataList = Array(result)
+            tableView.reloadData()
+        } catch {
+            // 取得失敗時の処理
+            print("データの取得エラー:\(error)")
+            showAlert()
+        }
+    }
+    
+    /// アラートを表示
+    func showAlert() {
+        let alert = UIAlertController(title: "エラーが発生しました",
+                                      message: "",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -54,13 +75,14 @@ class TimeLineViewController: UIViewController {
 extension TimeLineViewController: UITableViewDataSource {
     /// セルの数を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return details.count
+        return tweetDataList.count
     }
     
     /// 各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! XTableViewCell
-        cell.setup(userName: "太郎", detail: details[indexPath.row])
+        cell.setup(userName: tweetDataList[indexPath.row].userName,
+                   detail: tweetDataList[indexPath.row].tweetText)
         return cell
     }
 }
@@ -76,6 +98,13 @@ extension TimeLineViewController: UITableViewDelegate {
         let editVC = EditViewController()
         editVC.modalPresentationStyle = .fullScreen
         present(editVC, animated: true)
+    }
+}
+
+extension TimeLineViewController: EditViewControllerDelegate {
+    /// 「決定」ボタンをタップ時
+    func upDateView() {
+        fetchData()
     }
 }
 

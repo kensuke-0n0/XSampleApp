@@ -8,12 +8,20 @@
 import UIKit
 import RealmSwift
 
+    // MARK: - Protocols
+
+protocol EditViewControllerDelegate: AnyObject {
+    /// ビューを更新する
+    func upDateView()
+}
+
 class EditViewController: UIViewController {
     
     // MARK: - Properties
     
     let placeholderText = "いまどうしてる？"
     var dataModel = TweetDataModel()
+    var delegate: EditViewControllerDelegate?
     
     // MARK: - IBOutlets
     
@@ -59,6 +67,8 @@ class EditViewController: UIViewController {
                 dataModel.tweetText = tweetText
                 realm.add(dataModel)
             }
+            // 戻る際にデリゲートを発動し、元画面のnameを更新する
+            delegate?.upDateView()
             // 前の画面に戻る
             dismiss(animated: true, completion: nil)
         } catch {
