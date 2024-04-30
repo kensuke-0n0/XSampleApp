@@ -96,6 +96,8 @@ extension TimeLineViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let editVC = EditViewController()
+        editVC.setData(userName: tweetDataList[indexPath.row].userName,
+                       tweetText: tweetDataList[indexPath.row].tweetText)
         editVC.modalPresentationStyle = .fullScreen
         present(editVC, animated: true)
     }

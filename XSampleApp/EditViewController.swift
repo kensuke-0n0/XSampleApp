@@ -22,6 +22,8 @@ class EditViewController: UIViewController {
     let placeholderText = "いまどうしてる？"
     var dataModel = TweetDataModel()
     var delegate: EditViewControllerDelegate?
+    var savedUserName: String = ""
+    var savedTweetText: String = ""
     
     // MARK: - IBOutlets
     
@@ -32,6 +34,7 @@ class EditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTextField()
         configureTextView()
     }
     
@@ -48,10 +51,25 @@ class EditViewController: UIViewController {
     
     // MARK: - Other Methods
     
+    func setData(userName: String, tweetText: String) {
+        savedUserName = userName
+        savedTweetText = tweetText
+    }
+    
+    func configureTextField() {
+        if !savedUserName.isEmpty {
+            userNameTextField.text = savedUserName
+        }
+    }
+    
     func configureTextView() {
-        // プレースホルダーテキストを設定
-        tweetTextView.text = placeholderText
-        tweetTextView.textColor = UIColor.lightGray
+        if savedTweetText.isEmpty {
+            // プレースホルダーテキストを設定
+            tweetTextView.text = placeholderText
+            tweetTextView.textColor = UIColor.lightGray
+        } else {
+            tweetTextView.text = savedTweetText
+        }
         // デリゲートを設定
         tweetTextView.delegate = self
     }
@@ -73,6 +91,26 @@ class EditViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         } catch {
             print("データの追加エラー: \(error)")
+            showAlert()
+        }
+    }
+    
+    /// データを更新
+    private func updateData() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                // if let taskToUpdate = realm.object(ofType: TweetDataModel.self, forPrimaryKey: "tweet_data") {
+                if let taskToUpdate = realm.objects(TweetDataModel.self).filter("title == %@", "新しいタスク").first {
+                    taskToUpdate.userName = "更新されたタスク"
+                    taskToUpdate.isCompleted = true
+                }
+            }
+            更新成功時の処理をここに書く
+            
+        } catch {
+            　　　　　　　　// 更新失敗時の処理
+            print("データの取得エラー: \(error)")
             showAlert()
         }
     }
