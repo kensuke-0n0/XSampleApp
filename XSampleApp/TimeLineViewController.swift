@@ -103,6 +103,23 @@ extension TimeLineViewController: UITableViewDelegate {
         editVC.modalPresentationStyle = .fullScreen
         present(editVC, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let targetTweet = tweetDataList[indexPath.row]
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(targetTweet)
+            }
+            // 削除成功時の処理
+            tweetDataList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch {
+            // 削除失敗時の処理
+            print("データの削除エラー: \(error)")
+            showAlert()
+        }
+    }
 }
 
 // MARK: - EditViewControllerDelegate
