@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-    // MARK: - Protocols
+// MARK: - Protocols
 
 protocol EditViewControllerDelegate: AnyObject {
     /// ビューを更新する
@@ -47,6 +47,11 @@ class EditViewController: UIViewController {
     }
     
     @IBAction private func didTapPostButton(_ sender: Any) {
+        guard let userName = userNameTextField.text,
+              let tweetText = tweetTextView.text else { return }
+        if userName.isEmpty || tweetText.isEmpty || tweetText == "いまどうしてる？" {
+            showAlert(title: "項目が空です", message: "ユーザー名とツイート文を入力してください")
+        } else
         if savedUserName.isEmpty {
             saveData()
         } else {
@@ -97,7 +102,7 @@ class EditViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         } catch {
             print("データの追加エラー: \(error)")
-            showAlert()
+            showAlert(title: "エラーが発生しました", message: "")
         }
     }
     
@@ -124,16 +129,14 @@ class EditViewController: UIViewController {
         } catch {
             // 更新失敗時の処理
             print("データの取得エラー: \(error)")
-            showAlert()
+            showAlert(title: "エラーが発生しました", message: "")
         }
     }
     
-    
-    
     /// アラートを表示
-    private func showAlert() {
-        let alert = UIAlertController(title: "エラーが発生しました",
-                                      message: "",
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
@@ -158,5 +161,32 @@ extension EditViewController: UITextViewDelegate {
             textView.text = placeholderText
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    /// textview文字数制限
+    func textView(_ textView: UITextView,
+                  shouldChangeTextIn range: NSRange,
+                  replacementText text: String) -> Bool {
+        let textCount = textView.text.count + (text.count - range.length)
+        return checkCharacterLimit(textCount: textCount)
+    }
+    
+    func checkCharacterLimit(textCount: Int) -> Bool {
+        // 140文字以下の場合
+        if textCount <= 140 {
+            return true
+        } else {
+            showCharacterLimitAlert()
+            return false
+        }
+    }
+    
+    /// アラートを表示
+    func showCharacterLimitAlert() {
+        let alert = UIAlertController(title: "文字数制限オーバー",
+                                      message: "ツイートは140文字以内にしてください。",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
